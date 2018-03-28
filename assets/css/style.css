@@ -1,0 +1,22 @@
+body {
+  background-image: url("../images/binding_dark.png");
+  font-family: 'EB Garamond', serif;
+  color: #ccc;
+  text-align: center;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+div {
+  border: solid white 1px;
+  font-size: 2em;
+  padding: 10px;
+  margin: 25px;
+}
+
+div p {
+  margin: 5px;
+}

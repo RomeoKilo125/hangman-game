@@ -10,6 +10,7 @@ function game() {
   let losses = 0;
   let wordComplete = false;
   let alphaRe = /[a-z]/;
+  let numRe = /[\d]/;
 
   function StartGame() {
     secretWord = words[Math.floor(Math.random() * words.length)];
@@ -36,7 +37,7 @@ function game() {
 
   function WinGame() {
     wins++;
-    document.querySelector('#resultsBox').innerHTML = "<h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
+    document.querySelector('#resultsBox').innerHTML = "<h1>Congratulations!</h1>\n<h3>The word was " + secretWord.toUpperCase() + "</h3>\n<p>Press ENTER to play again.</p>";
     document.querySelector('#wins').innerHTML = wins;
   }
 
@@ -52,7 +53,7 @@ function game() {
       StartGame();
       return;
     }
-    if (alphaRe.test(guess) === false) {
+    if (alphaRe.test(guess) === false || numRe.test(guess) === true) {
       alert("What kind of trickery are you trying to pull? That's not a letter!")
       return;
     }
@@ -69,7 +70,7 @@ function game() {
     if (RegExp(guess).test(secretWord)) {
       secretWord.split('').forEach(function(elt, i) {
         if (elt === guess) {
-          blanksArray[i] = guess;
+          blanksArray[i] = guess.toUpperCase();
           document.querySelector("#wordBox").innerHTML = blanksArray.join('');
         }
       });
@@ -78,11 +79,10 @@ function game() {
         WinGame()
         return;
       }
-    } else {
-      if (guessesLeft <= 0) {
-        LoseGame();
-        return;
-      }
+    }
+    if (guessesLeft <= 0) {
+      LoseGame();
+      return;
     }
   }
 
