@@ -1,5 +1,5 @@
 function game() {
-  let words = ["magic missile", "sneak attack", "constitution", "dexterity", "death saving throw", "beholder", "illithid", "mordenkainen", "perkins", "gygax", "flumph", "githyanki", "acererak", "bigby", "waterdeep", "neverwinter", "baldur's gate"];
+  let words = ["MAGIC MISSILE", "SNEAK ATTACK", "CONSTITUTION", "DEXTERITY", "DEATH SAVING THROW", "BEHOLDER", "ILLITHID", "MORDENKAINEN", "CHRIS PERKINS", "GYGAX", "FLUMPH", "GITHYANKI", "ACERERAK", "BIGBY", "WATERDEEP", "NEVERWINTER", "BALDUR'S GATE"];
 
   let secretWord = "";
   let guess = "";
@@ -9,7 +9,7 @@ function game() {
   let wins = 0;
   let losses = 0;
   let wordComplete = false;
-  let alphaRe = /[a-z]/;
+  let alphaRe = /[a-z]/i;
   let numRe = /[\d]/;
 
   function StartGame() {
@@ -37,7 +37,7 @@ function game() {
 
   function WinGame() {
     wins++;
-    document.querySelector('#resultsBox').innerHTML = "<h1>Congratulations!</h1>\n<h3>The word was " + secretWord.toUpperCase() + "</h3>\n<p>Press ENTER to play again.</p>";
+    document.querySelector('#resultsBox').innerHTML = "<h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
     document.querySelector('#wins').innerHTML = wins;
   }
 
@@ -48,8 +48,8 @@ function game() {
   }
 
   document.onkeyup = function(event) {
-    let guess = event.key.toLowerCase();
-    if (guess === "enter" && (guessesLeft <= 0 || wordComplete === true)) {
+    let guess = event.key.toUpperCase();
+    if (guess === "ENTER" && (guessesLeft <= 0 || wordComplete === true)) {
       StartGame();
       return;
     }
@@ -70,7 +70,7 @@ function game() {
     if (RegExp(guess).test(secretWord)) {
       secretWord.split('').forEach(function(elt, i) {
         if (elt === guess) {
-          blanksArray[i] = guess.toUpperCase();
+          blanksArray[i] = guess;
           document.querySelector("#wordBox").innerHTML = blanksArray.join('');
         }
       });
