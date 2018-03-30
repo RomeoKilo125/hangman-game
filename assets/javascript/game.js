@@ -1,5 +1,17 @@
 function game() {
-  let words = ["MAGIC MISSILE", "SNEAK ATTACK", "BEHOLDER", "ILLITHID", "MORDENKAINEN", "CHRIS PERKINS", "FLUMPH", "GITHYANKI", "ACERERAK", "BIGBY'S HAND", "WATERDEEP", "NEVERWINTER", "BALDUR'S GATE"];
+  let words = [["MAGIC MISSILE", "magicmissile.jpg"],
+  ["SNEAK ATTACK","sneakAttach.jpg"],
+  ["BEHOLDER", "beholder.jpg"],
+  ["ILLITHID", "illithid.jpg"],
+  ["MORDENKAINEN", "mordenkainen.jpg"],
+  ["CHRIS PERKINS", "perkins.gif"],
+  ["FLUMPH", "flumph.jpg"],
+  ["GITHYANKI", "gith.jpg"],
+  ["ACERERAK", "acer.jpg"],
+  ["BIGBY'S HAND", "bigby.jpg"],
+  ["WATERDEEP", "waterdeep.jpg"],
+  ["NEVERWINTER", "neverwinter.jpg"],
+  ["BALDUR'S GATE", "baldur.jpg"]];
 
   let secretWord = "";
   let guess = "";
@@ -13,7 +25,9 @@ function game() {
   let numRe = /[\d]/;
 
   function StartGame() {
-    secretWord = words[Math.floor(Math.random() * words.length)];
+    secretNumber = Math.floor(Math.random() * words.length)
+    secretWord = words[secretNumber][0];
+    secretImg = words[secretNumber][1];
     blanksArray = []
     guessesLeft = secretWord.length + 3;
     for (i = 0; i < secretWord.length; i++) {
@@ -38,7 +52,7 @@ function game() {
   function WinGame() {
     wins++;
     document.querySelector("#wordBox").innerHTML = ""
-    document.querySelector('#resultsBox').innerHTML = "<h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
+    document.querySelector('#resultsBox').innerHTML = "<img class='winImg' src='assets/images/" + secretImg + "' /><h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
     document.querySelector('#wins').innerHTML = wins;
   }
 
