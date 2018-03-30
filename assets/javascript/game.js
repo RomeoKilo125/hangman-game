@@ -1,5 +1,5 @@
 function game() {
-  let words = ["MAGIC MISSILE", "SNEAK ATTACK", "CONSTITUTION", "DEXTERITY", "DEATH SAVING THROW", "BEHOLDER", "ILLITHID", "MORDENKAINEN", "CHRIS PERKINS", "GYGAX", "FLUMPH", "GITHYANKI", "ACERERAK", "BIGBY'S HAND", "WATERDEEP", "NEVERWINTER", "BALDUR'S GATE"];
+  let words = ["MAGIC MISSILE", "SNEAK ATTACK", "BEHOLDER", "ILLITHID", "MORDENKAINEN", "CHRIS PERKINS", "FLUMPH", "GITHYANKI", "ACERERAK", "BIGBY'S HAND", "WATERDEEP", "NEVERWINTER", "BALDUR'S GATE"];
 
   let secretWord = "";
   let guess = "";
@@ -37,12 +37,14 @@ function game() {
 
   function WinGame() {
     wins++;
+    document.querySelector("#wordBox").innerHTML = ""
     document.querySelector('#resultsBox').innerHTML = "<h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
     document.querySelector('#wins').innerHTML = wins;
   }
 
   function LoseGame() {
     losses++;
+    document.querySelector("#wordBox").innerHTML = ""
     document.querySelector('#resultsBox').innerHTML = "<h1>I'm Sorry, you lost!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
     document.querySelector('#losses').innerHTML = losses;
   }
