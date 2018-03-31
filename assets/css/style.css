@@ -11,7 +11,6 @@ body {
 
 #container {
   width: 960px;
-  border: solid white 1px;
 }
 
 #container::after {
@@ -32,8 +31,6 @@ h1 {
   font-size: 2em;
   padding: 25px 0;
   width: 100%;
-  /* margin: 25px 0; */
-  border: solid white 1px;
 }
 
 div  {
