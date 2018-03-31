@@ -1,27 +1,23 @@
+html {
+  box-sizing: border-box;
+}
 body {
   background-color: black;
   font-family: 'EB Garamond', serif;
   color: #999;
   text-align: center;
   background: url("../images/binding_dark.png");
-
 }
 
-/* put in a pseudo element to include a semi-transparent background image, but I couldn't make it cover the whole page, so I just found a different image that was close to the hue I wanted. */
-/* #container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  opacity: .5;
-  background-repeat: repeat;
-} */
-
-.container {
+#container {
   width: 960px;
+  border: solid white 1px;
+}
+
+#container::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 h1 {
@@ -31,16 +27,17 @@ h1 {
   margin-bottom: 35px;
 }
 
-div {
+.box {
   float: left;
   font-size: 2em;
-  padding: 10px;
-  margin: 25px;
-  width: 90%;
+  padding: 25px 0;
+  width: 100%;
+  /* margin: 25px 0; */
+  border: solid white 1px;
 }
 
-div p {
-  margin: 5px;
+div  {
+  margin: 0 auto;
 }
 
 #logo {
@@ -48,5 +45,6 @@ div p {
 }
 
 .winImg {
-  width: 50%;
+  max-width: 50%;
+  max-height: 400px;
 }
