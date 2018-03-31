@@ -29,7 +29,7 @@ function game() {
     secretWord = words[secretNumber][0];
     secretImg = words[secretNumber][1];
     blanksArray = []
-    guessesLeft = secretWord.length + 3;
+    guessesLeft = secretWord.length + 5;
     for (i = 0; i < secretWord.length; i++) {
       if (alphaRe.test(secretWord[i]) === true) {
         blanksArray.push("_ ");
