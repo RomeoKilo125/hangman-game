@@ -52,7 +52,7 @@ function game() {
   function WinGame() {
     wins++;
     document.querySelector("#wordBox").innerHTML = ""
-    document.querySelector('#resultsBox').innerHTML = "<img class='winImg' src='assets/images/" + secretImg + "' /><h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
+    document.querySelector('#resultsBox').innerHTML = "<img class='winImg' src='./assets/images/" + secretImg + "' /><h1>Congratulations!</h1>\n<h3>The word was " + secretWord + "</h3>\n<p>Press ENTER to play again.</p>";
     document.querySelector('#wins').innerHTML = wins;
   }
 
